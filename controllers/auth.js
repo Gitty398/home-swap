@@ -1,6 +1,5 @@
 const express = require("express")
 const router = express.Router();
-const user = require("../models/user");
 const User = require("../models/user");
 const bcrypt = require("bcrypt")
 
@@ -55,8 +54,17 @@ router.post("/sign-up", async (req, res) => {
     req.body.password = hashedPassword
     const newUser = await User.create(req.body)
 
-    res.send(newUser)
-})
+    req.session.user = {
+        username: newUser.username,
+        _id: newUser._id,
+    }
+
+    req.session.message = `Welcome to Home Swap ${newUser.username}`
+
+    req.session.save(() => {
+        res.redirect("/listings");
+    });
+});
 
 
 module.exports = router;

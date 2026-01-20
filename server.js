@@ -6,8 +6,11 @@ const PORT = process.env.PORT || 3000;
 const morgan = require("morgan")
 const methodOverride = require("method-override")
 const authRoutes = require("./controllers/auth")
+const listingController = require("./controllers/listing")
+const userController = require("./controllers/user")
 const session = require("express-session")
 const MongoStore = require("connect-mongo")
+const passDataToView = require('./middleware/pass-data-to-view')
 
 // Middleware
 
@@ -24,6 +27,7 @@ app.use(session({
     })
 })
 );
+app.use(passDataToView)
 
 
 // Routes
@@ -31,9 +35,7 @@ app.use(session({
 // Home
 
 app.get("/", (req, res) => {
-    res.render("index.ejs", {
-        user: req.session.user
-    })
+    res.render("index.ejs")
 })
 
 
@@ -50,14 +52,8 @@ app.use((req, res, next) => {
     }
 })
 
-
-app.get("/vip-lounge", (req, res) => {
-    if (req.session.user) {
-        res.send(`Welcome to the party ${req.session.user.username}`)
-    } else {
-        res.send("Sorry no guests allowed")
-    }
-})
+app.use("/listings", listingController)
+app.use('/users', userController)
 
 
 app.listen(PORT, () => {
