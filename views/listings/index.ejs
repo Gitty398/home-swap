@@ -2,9 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Available listings</title>
+    <%- include('../partials/head.ejs') %>
 </head>
 
 <body>
@@ -12,20 +10,19 @@
         <h1>Available Swap Listings</h1>
         <ul>
             <% listings.forEach(listing=> { %>
-                <% if (listing.username.owner !==req.session.user) { %>
+                <% if (String(listing.owner) !==String(user)) { %>
                     <li>
                         <a href="/listings/<%= listing._id%>">
-                            <%=listing.image %>
+                            <img id="home-image" src="<%=listing.image %>"
+                                alt="<%=listing.class%> in <%=listing.city%>">
                         </a>
                         <%= listing.city %>
                             <%= listing.class %>
-                                <%= listing.numBedrooms %>
-                                    <%= listing.numBathrooms %>
+                                <%= listing.numBedrooms %> Bed
+                                    <%= listing.numBathrooms %> Bath
                     </li>
-                    <% console.log(listing.username.owner) %>
-                        <% console.log(req.session.user) %>
-                            <% } %>
-                                <% }) %>
+                    <% } %>
+                        <% }) %>
         </ul>
 </body>
 
