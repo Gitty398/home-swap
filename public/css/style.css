@@ -1,4 +1,8 @@
 #home-image {
     max-width: 250px;
-    max-height: 250px;
+    max-height: 300px;
+}
+
+li {
+    list-style-type: none;
 }

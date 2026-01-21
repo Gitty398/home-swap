@@ -11,6 +11,10 @@ router.get("/", async (req, res) => {
 });
 
 // New
+router.get("/new", async (req, res) => {
+    res.render("listings/new.ejs")
+})
+
 // Delete
 // Update
 // Create
