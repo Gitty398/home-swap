@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const listingSchema = new mongoose.Schema(
+const homeSchema = new mongoose.Schema(
     {
         streetAddress: {
             type: String,
@@ -50,6 +50,6 @@ const listingSchema = new mongoose.Schema(
     }
 );
 
-const Listing = mongoose.model("Listing", listingSchema);
+const Home = mongoose.model("Home", homeSchema);
 
-module.exports = Listing;
+module.exports = Home;

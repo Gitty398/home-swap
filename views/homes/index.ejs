@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head.ejs') %>
+</head>
+
+<body>
+    <%- include('../partials/_navbar.ejs', {user: user}) %>
+        <h1>Available Swap homes</h1>
+        <ul>
+            <% homes.forEach(home=> { %>
+                <% if (String(home.owner) !==String(user)) { %>
+                    <li>
+                        <a href="/homes/<%= home._id%>">
+                            <img id="home-image" src="<%=home.image %>"
+                                alt="<%=home.class%> in <%=home.city%>">
+                        </a>
+                        <%= home.city %>
+                            <%= home.class %>
+                                <%= home.numBedrooms %> Bed
+                                    <%= home.numBathrooms %> Bath
+                    </li>
+                    <% } %>
+                        <% }) %>
+        </ul>
+</body>
+
+</html>

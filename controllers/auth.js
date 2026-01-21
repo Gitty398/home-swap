@@ -62,7 +62,7 @@ router.post("/sign-up", async (req, res) => {
     req.session.message = `Welcome to Home Swap ${newUser.username}`
 
     req.session.save(() => {
-        res.redirect("/listings");
+        res.redirect("/homes");
     });
 });
 

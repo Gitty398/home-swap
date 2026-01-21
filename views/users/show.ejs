@@ -9,14 +9,14 @@
     <%- include('../partials/_navbar.ejs', {user: user}) %>
         <h1>My Profile</h1>
 
-        <a href="/listings/new">Add a New Home to be Swapped</a>
+        <a href="/homes/new">Add a New Home to be Swapped</a>
 
         <h3> My Homes</h3>
 
         <ul>
             <% myHomes.forEach(home=> { %>
                 <li>
-                    <a href="/listings/<%= home._id%>">
+                    <a href="/homes/<%= home._id%>">
                         <img id="home-image" src="<%=home.image %>" alt="<%=home.class%> in <%=home.city%>">
                     </a>
                     <%= home.city %>
@@ -32,7 +32,7 @@
         <ul>
             <% swappedRightHomes.forEach(home=> { %>
                 <li>
-                    <a href="/listings/<%= home._id%>">
+                    <a href="/homes/<%= home._id%>">
                         <img id="home-image" src="<%=home.image %>" alt="<%=home.class%> in <%=home.city%>">
                     </a>
                     <%= home.city %>

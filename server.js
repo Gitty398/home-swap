@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 const morgan = require("morgan")
 const methodOverride = require("method-override")
 const authRoutes = require("./controllers/auth")
-const listingController = require("./controllers/listing")
+const homeController = require("./controllers/home")
 const userController = require("./controllers/user")
 const session = require("express-session")
 const MongoStore = require("connect-mongo")
@@ -53,7 +53,7 @@ app.use((req, res, next) => {
     }
 })
 
-app.use("/listings", listingController)
+app.use("/homes", homeController)
 app.use('/users', userController)
 
 
