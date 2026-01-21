@@ -9,23 +9,23 @@ router.get("/", (req, res) => {
     res.render("/")
 });
 
-// Show /users/profile
+// Show /users/myprofile
 
-// router.get("/profile", async (req, res) => {
-//     try {
-//         const myHomes = await Listing.find({ owner: req.session.user._id, }).populate("owner");
+router.get("/myprofile", async (req, res) => {
+    try {
+        const myHomes = await Listing.find({ owner: req.session.user._id, }).populate("owner");
 
-//         const swappedRightHomes = await Listing.find({ swappedRight: req.session.user._id, }).populate("owner")
+        const swappedRightHomes = await Listing.find({ swappedRight: req.session.user._id, }).populate("owner")
 
-//         res.render("users/show.ejs", { myHomes, swappedRightHomes })
+        res.render("users/show.ejs", { myHomes, swappedRightHomes })
 
-//     } catch (error) {
-//         req.session.message = error.message;
-//         req.session.save(() => {
-//             res.redirect("/listings");
-//         });
-//     }
-// })
+    } catch (error) {
+        req.session.message = error.message;
+        req.session.save(() => {
+            res.redirect("/listings");
+        });
+    }
+})
 
 // Show /users/swaps
 

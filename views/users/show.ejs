@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head.ejs') %>
+</head>
+
+<body>
+    <%- include('../partials/_navbar.ejs', {user: user}) %>
+        <h1>My Profile</h1>
+
+        <a href="/listings/new">Add a New Home to be Swapped</a>
+
+        <h3> My Homes</h3>
+
+        <ul>
+            <% myHomes.forEach(home=> { %>
+                <li>
+                    <a href="/listings/<%= home._id%>">
+                        <img id="home-image" src="<%=home.image %>" alt="<%=home.class%> in <%=home.city%>">
+                    </a>
+                    <%= home.city %>
+                        <%= home.class %>
+                            <%= home.numBedrooms %> Bed
+                                <%= home.numBathrooms %> Bath
+                </li>
+                <% }) %>
+        </ul>
+
+        <h3>Swapped Right Homes</h3>
+
+        <ul>
+            <% swappedRightHomes.forEach(home=> { %>
+                <li>
+                    <a href="/listings/<%= home._id%>">
+                        <img id="home-image" src="<%=home.image %>" alt="<%=home.class%> in <%=home.city%>">
+                    </a>
+                    <%= home.city %>
+                        <%= home.class %>
+                            <%= home.numBedrooms %> Bed
+                                <%= home.numBathrooms %> Bath
+                </li>
+                <% }) %>
+        </ul>
+
+</html>
