@@ -32,6 +32,19 @@ router.post("/", async (req, res) => {
 
 
 // Edit
+router.get("/:homeId/edit", async (req, res) => {
+    try {
+        const foundHome = await Home.findById(req.params.homeId)
+        if (!foundHome)
+            throw new Error(`There is no property with an ID of ${req.params.homeId}`)
+        res.render("homes/edit.ejs", { home: foundHome })
+    } catch (error) {
+        console.log(error)
+        res.redirect("/")
+    }
+})
+
+
 // Show
 router.get("/:homeId", async (req, res) => {
     try {
