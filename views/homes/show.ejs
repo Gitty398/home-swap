@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head.ejs') %>
+        <title>
+            <%= home.owner.username%>'s <%=home.class%>
+        </title>
+</head>
+
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+
+        <h1>
+            <%= home.owner.username%>'s <%=home.class%>
+        </h1>
+
+        <img id="show-image" src="<%= home.image  %>" alt="<%=home.owner.username%>'s <%=home.class%>">
+
+        <div>
+            <%= home.city %>
+                <%= home.class %>
+                    <%= home.numBedrooms %> Bed
+                        <%= home.numBathrooms %> Bath
+        </div>
+
+        <div>
+            <% if(home.owner._id.equals(user._id)) { %>
+                <a href="/homes/<%=home._id %>/edit">Edit this Home</a>
+
+                <% } else { %>
+                    <form action="/homes/<%= home._id %>/swapped-right-by/<%=user._id%>" method="POST">
+                        <button type="submit">Swap Right on this Home</button>
+                        <% } %>
+        </div>
+</body>
+
+</html>

@@ -3,6 +3,15 @@
     max-height: 300px;
 }
 
+#show-image {
+    max-width: 700px;
+    max-height: 650px;
+}
+
 li {
     list-style-type: none;
 }
+
+/* body {
+    background-color: red;
+} */

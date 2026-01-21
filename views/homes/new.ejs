@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <%- include('../partials/_navbar.ejs', {user: user}) %>
+    <%- include('../partials/_navbar.ejs') %>
 
         <form action="/homes" method="POST">
             <label for="streetAddress">Street Address:</label>
@@ -26,7 +26,7 @@
                 <option value="Single-Family Home">Single-Family Home</option>
                 <option value="Apartment/ Condo">Apartment / Condo</option>
                 <option value="Multi-Family">Multi-Family</option>
-                <option value="Other">Other</option>
+                <option value="Other Residence">Other Residence</option>
             </select>
 
             <label>Beach Access:
@@ -48,14 +48,6 @@
             <input type="text" name="image" placeholder="https://..." />
 
             <button type="submit">Add Home</button>
-
-        </form>
-
-
-
-
-
-
 
         </form>
 </body>

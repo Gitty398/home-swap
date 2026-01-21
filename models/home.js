@@ -22,7 +22,7 @@ const homeSchema = new mongoose.Schema(
         class: {
             type: String,
             required: true,
-            enum: ["Single-Family Home", "Apartment/ Condo", "Multi-Family", "Other"]
+            enum: ["Single-Family Home", "Apartment/ Condo", "Multi-Family", "Other Residence"]
         },
         owner: {
             type: mongoose.Schema.Types.ObjectId,
