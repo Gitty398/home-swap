@@ -29,9 +29,19 @@
                 <a href="/homes/<%=home._id %>/edit">Edit this Home</a>
 
                 <% } else { %>
-                    <form action="/homes/<%= home._id %>/swapped-right-by/<%=user._id%>" method="POST">
-                        <button type="submit">Swap Right on this Home</button>
-                        <% } %>
+
+                    <% if (userHasSwappedRight) { %>
+
+                        <form action="/homes/<%= home._id %>/swapped-right-by/<%=user._id%>/?_method=DELETE"
+                            method="POST">
+                            <button type="submit">Un-Swap Right on this Home</button>
+                        </form>
+
+                        <%} else {%>
+
+                            <form action="/homes/<%= home._id %>/swapped-right-by/<%=user._id%>" method="POST">
+                                <button type="submit">Swap Right on this Home</button>
+                                <% }} %>
         </div>
 </body>
 

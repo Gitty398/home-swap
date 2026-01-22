@@ -17,6 +17,8 @@ router.get("/myprofile", async (req, res) => {
 
         const swappedRightHomes = await Home.find({ swappedRight: req.session.user._id, }).populate("owner")
 
+        
+
         res.render("users/show.ejs", { myHomes, swappedRightHomes })
 
     } catch (error) {

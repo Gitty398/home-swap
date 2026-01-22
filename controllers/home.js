@@ -49,9 +49,15 @@ router.get("/:homeId/edit", async (req, res) => {
 router.get("/:homeId", async (req, res) => {
     try {
         const foundHome = await Home.findById(req.params.homeId).populate("owner")
+
+        const userHasSwappedRight = foundHome.swappedRight.some(user => {
+            return user.equals(req.session.user._id)
+        })
+
+
         if (!foundHome)
             throw new Error(`There is no property with an ID of ${req.params.homeId}`)
-        res.render("homes/show.ejs", { home: foundHome })
+        res.render("homes/show.ejs", { home: foundHome, userHasSwappedRight })
     } catch (error) {
         console.log(error)
         res.redirect("/homes")
@@ -132,5 +138,34 @@ router.get("/:homeId", async (req, res) => {
 //     await Home.create(homes);
 //     res.redirect("/homes")
 // })
+
+// POST swapped-right-by
+router.post("/:homeId/swapped-right-by/:userId", async (req, res) => {
+    try {
+        await Home.findByIdAndUpdate(req.params.homeId, {
+            $addToSet: { swappedRight: req.params.userId }
+        });
+        res.redirect(`/homes/${req.params.homeId}`);
+
+    } catch (error) {
+        console.log(error)
+        res.redirect("/homes");
+    }
+});
+
+// DELETE swapped-right-by
+router.delete("/:homeId/swapped-right-by/:userId", async (req, res) => {
+    try {
+        await Home.findByIdAndUpdate(req.params.homeId, {
+            $pull: { swappedRight: req.params.userId }
+        })
+
+        res.redirect(`/homes/${req.params.homeId}`)
+
+    } catch (error) {
+        console.log(error);
+        res.redirect("/homes");
+    }
+});
 
 module.exports = router;
