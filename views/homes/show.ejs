@@ -25,8 +25,19 @@
         </div>
 
         <div>
+            Beach Access: <%= home.beachAccess %>
+                Pool Available: <%= home.poolAvailable %>
+                    Pets Allowed: <%= home.petsAllowed %>
+        </div>
+
+
+
+        <div>
             <% if(home.owner._id.equals(user._id)) { %>
                 <a href="/homes/<%=home._id %>/edit">Edit this Home</a>
+                <form action="/homes/<%=home._id %>?_method=DELETE" method="POST">
+                    <button type="submit">Delete this Home</button>
+                </form>
 
                 <% } else { %>
 

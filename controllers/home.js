@@ -16,7 +16,28 @@ router.get("/new", async (req, res) => {
 })
 
 // Delete
+router.delete("/:homeId", async (req, res) => {
+    try {
+        const foundHome = await Home.findById(req.params.homeId)
+        if (!foundHome.owner._id.equals(req.session.user._id)) {
+            throw new Error("You cannot delete a Home if you do not own it!");
+        }
+        await foundHome.deleteOne()
+
+        res.redirect("/homes")
+    } catch (error) {
+        console.log(error);
+        res.redirect(`/homes/${req.params.homeId}`);
+    }
+});
+
+
+
 // Update
+
+
+
+
 
 // Create
 router.post("/", async (req, res) => {
@@ -53,8 +74,6 @@ router.get("/:homeId", async (req, res) => {
         const userHasSwappedRight = foundHome.swappedRight.some(user => {
             return user.equals(req.session.user._id)
         })
-
-
         if (!foundHome)
             throw new Error(`There is no property with an ID of ${req.params.homeId}`)
         res.render("homes/show.ejs", { home: foundHome, userHasSwappedRight })
