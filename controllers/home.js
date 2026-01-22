@@ -25,6 +25,7 @@ router.delete("/:homeId", async (req, res) => {
         await foundHome.deleteOne()
 
         res.redirect("/homes")
+
     } catch (error) {
         console.log(error);
         res.redirect(`/homes/${req.params.homeId}`);
@@ -34,7 +35,21 @@ router.delete("/:homeId", async (req, res) => {
 
 
 // Update
+router.put("/:homeId", async (req, res) => {
+    try {
+        const foundHome = await Home.findById(req.params.homeId)
+        if (!foundHome.owner._id.equals(req.session.user._id)) {
+            throw new Error("You cannot delete a Home if you do not own it!");
+        }
+        await foundHome.updateOne(req.body);
 
+        res.redirect("/homes")
+
+    } catch (error) {
+        console.log(error);
+        res.redirect(`/homes/${req.params.homeId}`);
+    }
+});
 
 
 
