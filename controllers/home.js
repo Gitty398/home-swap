@@ -86,12 +86,20 @@ router.get("/:homeId", async (req, res) => {
     try {
         const foundHome = await Home.findById(req.params.homeId).populate("owner")
 
+        if (!foundHome)
+            throw new Error(`There is no property with an ID of ${req.params.homeId}`)
+
         const userHasSwappedRight = foundHome.swappedRight.some(user => {
             return user.equals(req.session.user._id)
         })
-        if (!foundHome)
-            throw new Error(`There is no property with an ID of ${req.params.homeId}`)
-        res.render("homes/show.ejs", { home: foundHome, userHasSwappedRight })
+
+        const theySwappedRightOnMe = Boolean(await Home.exists({
+            owner: req.session.user._id,
+            swappedRight: foundHome.owner._id
+        })
+        );
+
+        res.render("homes/show.ejs", { home: foundHome, userHasSwappedRight, theySwappedRightOnMe })
     } catch (error) {
         console.log(error)
         res.redirect("/homes")

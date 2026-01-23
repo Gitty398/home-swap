@@ -18,22 +18,32 @@
         <img id="show-image" src="<%= home.image  %>" alt="<%=home.owner.username%>'s <%=home.class%>">
 
         <div>
-            <%= home.city %>
-                <%= home.class %>
-                    <%= home.numBedrooms %> Bed
-                        <%= home.numBathrooms %> Bath
+            <% const isOwner=home.owner._id.equals(user._id) %>
+
+                <% if (isOwner) { %>
+
+                    <%= home.streetAddress %>
+                        <% } %>
+                            <%= home.city %>
+                                <%= home.class %>
+                                    <%= home.numBedrooms %> Bed
+                                        <%= home.numBathrooms %> Bath
+
         </div>
 
         <div>
-            Beach Access: <%= home.beachAccess %>
-                Pool Available: <%= home.poolAvailable %>
-                    Pets Allowed: <%= home.petsAllowed %>
+            <p>Beach Access: <%= home.beachAccess ? "Yes" : "No" %>
+            </p>
+            <p>Pool Available: <%= home.poolAvailable ? "Yes" : "No" %>
+            </p>
+            <p>Pets Allowed: <%= home.petsAllowed ? "Yes" : "No" %>
+            </p>
         </div>
 
 
 
         <div>
-            <% if(home.owner._id.equals(user._id)) { %>
+            <% if(isOwner) { %>
                 <a href="/homes/<%=home._id %>/edit">Edit this Home</a>
                 <form action="/homes/<%=home._id %>?_method=DELETE" method="POST">
                     <button type="submit">Delete this Home</button>
@@ -53,6 +63,19 @@
                             <form action="/homes/<%= home._id %>/swapped-right-by/<%=user._id%>" method="POST">
                                 <button type="submit">Swap Right on this Home</button>
                                 <% }} %>
+        </div>
+
+        <div>
+            <h3>Swap Matches</h3>
+
+            <% if (!isOwner && userHasSwappedRight && theySwappedRightOnMe) { %>
+                <p>You and <%= home.owner.username %> have swapped-right on each other’s homes.</p>
+                <p> You can contact them at <%= home.owner.email %>
+                </p>
+                <% } else if (!isOwner && userHasSwappedRight) { %>
+                    <p>You’ve swapped-right on this home. Waiting for <%= home.owner.username %> to swap-right one of
+                            your homes.</p>
+                    <% } %>
         </div>
 </body>
 
