@@ -8,6 +8,11 @@
     max-height: 650px;
 }
 
+#landing-image {
+    max-width: 150x;
+    max-height: 200px;
+}
+
 li {
     list-style-type: none;
 }

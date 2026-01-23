@@ -4,20 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Home Swap</title>
 </head>
 
 <body>
 
-    <% if (user) { %>
-        <%- include('./partials/_navbar.ejs') %>
-            Welcome Back <%= user.username %>
+    <div>
+        <% if (user) { %>
+            <%- include('./partials/_navbar.ejs') %>
+                Welcome Back <%= user.username %>
 
-                <% } else { %>
-                    <a href="/auth/sign-up">Sign Up</a>
-                    <a href="/auth/sign-in">Sign In</a>
-                    <h1> Welcome to the App</h1>
-                    <% } %>
+                    <% } else { %>
+                        <a href="/auth/sign-up">Sign Up</a>
+                        <a href="/auth/sign-in">Sign In</a>
+                        <h1> Welcome to the Home Swap App</h1>
+                        <% } %>
+                            <h2>
+                                The perfect app for swapping homes for cost-conscious travelers
+                            </h2>
+    </div>
+
+
+    <div>
+        <h3>Take a look at some of the homes available for Home Swap!</h3>
+
+        <ul>
+            <% homes.forEach(home=> { %>
+                <li>
+                    <a href="/auth/sign-up">
+                        <img id="landing-image" src="<%= home.image %>" alt="<%= home.class %>">
+                    </a>
+
+                    <p>
+                        <%= home.city %>
+                    </p>
+                    <p>
+                        <%= home.class %>
+                    </p>
+                    <p>
+                        <%= home.numBedrooms %> Bed / <%= home.numBathrooms %> Bath
+                    </p>
+                </li>
+                <% }) %>
+        </ul>
+
+    </div>
+
+
 </body>
 
 </html>

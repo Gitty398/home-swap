@@ -11,6 +11,7 @@ const userController = require("./controllers/user")
 const session = require("express-session")
 const MongoStore = require("connect-mongo")
 const passDataToView = require('./middleware/pass-data-to-view')
+const Home = require("./models/home");
 
 // Middleware
 
@@ -35,8 +36,9 @@ app.use(passDataToView)
 
 // Home
 
-app.get("/", (req, res) => {
-    res.render("index.ejs")
+app.get("/", async (req, res) => {
+    const homes = await Home.find({}).limit(5);
+    res.render("index.ejs", { homes });
 })
 
 
