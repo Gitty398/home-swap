@@ -9,7 +9,7 @@
     <%- include('../partials/_navbar.ejs', {user: user}) %>
         <h1>My Profile</h1>
 
-        <a href="/homes/new">Add a New Home to be Swapped</a>
+        <button><a href="/homes/new">Add a New Home to be Swapped</a></button>
 
         <h3> My Homes</h3>
 
@@ -18,16 +18,17 @@
                 <li>
                     <a href="/homes/<%= home._id%>">
                         <img id="home-image" src="<%=home.image %>" alt="<%=home.class%> in <%=home.city%>">
+
+                        <p>
+                            <%= home.city %>
+                        </p>
+                        <p>
+                            <%= home.class %>
+                        </p>
+                        <p>
+                            <%= home.numBedrooms %> Bed / <%= home.numBathrooms %> Bath
+                        </p>
                     </a>
-                    <p>
-                        <%= home.city %>
-                    </p>
-                    <p>
-                        <%= home.class %>
-                    </p>
-                    <p>
-                        <%= home.numBedrooms %> Bed / <%= home.numBathrooms %> Bath
-                    </p>
                 </li>
                 <% }) %>
         </ul>
@@ -39,16 +40,17 @@
                 <li>
                     <a href="/homes/<%= home._id%>">
                         <img id="home-image" src="<%=home.image %>" alt="<%=home.class%> in <%=home.city%>">
+
+                        <p>
+                            <%= home.city %>
+                        </p>
+                        <p>
+                            <%= home.class %>
+                        </p>
+                        <p>
+                            <%= home.numBedrooms %> Bed / <%= home.numBathrooms %> Bath
+                        </p>
                     </a>
-                    <p>
-                        <%= home.city %>
-                    </p>
-                    <p>
-                        <%= home.class %>
-                    </p>
-                    <p>
-                        <%= home.numBedrooms %> Bed / <%= home.numBathrooms %> Bath
-                    </p>
                 </li>
                 <% }) %>
         </ul>

@@ -9,47 +9,46 @@
 </head>
 
 <body id="homepage">
+    <%- include('./partials/_navbar.ejs') %>
+        <div>
+            <% if (user) { %>
 
-    <div>
-        <% if (user) { %>
-            <%- include('./partials/_navbar.ejs') %>
                 Welcome Back <%= user.username %>
 
                     <% } else { %>
-                        <a href="/auth/sign-up">Sign Up</a>
-                        <a href="/auth/sign-in">Sign In</a>
+
                         <h1> Welcome to the Home Swap App</h1>
                         <% } %>
                             <h2>
                                 The perfect app for swapping homes between cost-conscious travelers
                             </h2>
-    </div>
+        </div>
 
 
-    <div>
-        <h3>Take a look at some of the homes available for Home Swap!</h3>
+        <div>
+            <h3>Take a look at some of the homes available for Home Swap!</h3>
 
-        <ul>
-            <% homes.forEach(home=> { %>
-                <li>
-                    <a href="/auth/sign-up">
-                        <img id="landing-image" src="<%= home.image %>" alt="<%= home.class %>">
-                    </a>
+            <ul>
+                <% homes.forEach(home=> { %>
+                    <li>
+                        <a href="/auth/sign-up">
+                            <img id="landing-image" src="<%= home.image %>" alt="<%= home.class %>">
+                        </a>
 
-                    <p>
-                        <%= home.city %>
-                    </p>
-                    <p>
-                        <%= home.class %>
-                    </p>
-                    <p>
-                        <%= home.numBedrooms %> Bed / <%= home.numBathrooms %> Bath
-                    </p>
-                </li>
-                <% }) %>
-        </ul>
+                        <p>
+                            <%= home.city %>
+                        </p>
+                        <p>
+                            <%= home.class %>
+                        </p>
+                        <p>
+                            <%= home.numBedrooms %> Bed / <%= home.numBathrooms %> Bath
+                        </p>
+                    </li>
+                    <% }) %>
+            </ul>
 
-    </div>
+        </div>
 
 
 </body>
