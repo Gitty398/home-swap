@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Varta:wght@300..700&display=swap');
+
+body {
+    font-family: "Varta", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 350;
+    font-style: normal;
+}
+
 #home-image {
     max-width: 250px;
     max-height: 300px;
@@ -20,3 +29,19 @@ li {
 /* body {
     background-color: red;
 } */
+
+
+/* Homepage */
+
+ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#homepage {
+    display: flex;
+    flex-direction: column;
+
+}

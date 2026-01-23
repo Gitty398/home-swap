@@ -69,11 +69,11 @@
             <h3>Swap Matches</h3>
 
             <% if (!isOwner && userHasSwappedRight && theySwappedRightOnMe) { %>
-                <p>You and <%= home.owner.username %> have swapped-right on each other’s homes.</p>
+                <p>You and <%= home.owner.username %> have swapped-right on each other's homes.</p>
                 <p> You can contact them at <%= home.owner.email %>
                 </p>
                 <% } else if (!isOwner && userHasSwappedRight) { %>
-                    <p>You’ve swapped-right on this home. Waiting for <%= home.owner.username %> to swap-right one of
+                    <p>You've swapped-right on this home. Waiting for <%= home.owner.username %> to swap-right one of
                             your homes.</p>
                     <% } %>
         </div>

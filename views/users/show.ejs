@@ -19,10 +19,15 @@
                     <a href="/homes/<%= home._id%>">
                         <img id="home-image" src="<%=home.image %>" alt="<%=home.class%> in <%=home.city%>">
                     </a>
-                    <%= home.city %>
+                    <p>
+                        <%= home.city %>
+                    </p>
+                    <p>
                         <%= home.class %>
-                            <%= home.numBedrooms %> Bed
-                                <%= home.numBathrooms %> Bath
+                    </p>
+                    <p>
+                        <%= home.numBedrooms %> Bed / <%= home.numBathrooms %> Bath
+                    </p>
                 </li>
                 <% }) %>
         </ul>
@@ -35,10 +40,15 @@
                     <a href="/homes/<%= home._id%>">
                         <img id="home-image" src="<%=home.image %>" alt="<%=home.class%> in <%=home.city%>">
                     </a>
-                    <%= home.city %>
+                    <p>
+                        <%= home.city %>
+                    </p>
+                    <p>
                         <%= home.class %>
-                            <%= home.numBedrooms %> Bed
-                                <%= home.numBathrooms %> Bath
+                    </p>
+                    <p>
+                        <%= home.numBedrooms %> Bed / <%= home.numBathrooms %> Bath
+                    </p>
                 </li>
                 <% }) %>
         </ul>
