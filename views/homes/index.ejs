@@ -7,27 +7,29 @@
 
 <body>
     <%- include('../partials/_navbar.ejs') %>
-        <h1>Available Swap Homes</h1>
-        <ul>
-            <% homes.forEach(home=> { %>
-                <% if (String(home.owner) !==String(user._id)) { %>
-                    <li>
-                        <a href="/homes/<%= home._id%>">
-                            <img id="home-image" src="<%=home.image %>" alt="<%=home.class%> in <%=home.city%>">
-                            <p>
-                                <%= home.city %>
-                            </p>
-                            <p>
-                                <%= home.class %>
-                            </p>
-                            <p>
-                                <%= home.numBedrooms %> Bed / <%= home.numBathrooms %> Bath
-                            </p>
-                        </a>
-                    </li>
-                    <% } %>
-                        <% }) %>
-        </ul>
+        <section id="home-card-section">
+            <h1>Available Swap Homes</h1>
+            <ul id="search">
+                <% homes.forEach(home=> { %>
+                    <% if (String(home.owner) !==String(user._id)) { %>
+                        <li>
+                            <a href="/homes/<%= home._id%>">
+                                <img id="home-image" src="<%=home.image %>" alt="<%=home.class%> in <%=home.city%>">
+                                <p>
+                                    <%= home.city %>
+                                </p>
+                                <p>
+                                    <%= home.class %>
+                                </p>
+                                <p>
+                                    <%= home.numBedrooms %> Bed / <%= home.numBathrooms %> Bath
+                                </p>
+                            </a>
+                        </li>
+                        <% } %>
+                            <% }) %>
+            </ul>
+        </section>
 </body>
 
 </html>

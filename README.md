@@ -33,7 +33,7 @@ The perfect app for swapping homes between cost-conscious travelers.
 
 # Attributions
 
-*Tinder and other dating applications that use a similar matching algorithm.
+* Tinder and other dating applications that use a similar matching algorithm were a big inspiration.
 
 # Next Steps/ Stretch Goals
 
