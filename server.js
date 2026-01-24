@@ -37,7 +37,7 @@ app.use(passDataToView)
 // Home
 
 app.get("/", async (req, res) => {
-    const homes = await Home.find({}).limit(5);
+    const homes = await Home.find({}).limit(8);
     res.render("index.ejs", { homes });
 })
 
