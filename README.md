@@ -15,7 +15,7 @@ The perfect app for swapping homes between cost-conscious travelers.
 
 * Users can decide to swap for as long as they would like as the reasons for home-swapping can vary. Examples for home-swapping can include vacation, temporary re-location without having to sell or buy a home, or any multitude of reasons.
 
-* To use the Home Swap application, users will create an account and then enter their home information. Once a home has been uploaded, users can browse available homes and decide if they would like to ***Swap Right*** on another user's property. Only when another user ***swaps Right*** on one of the current user's homes will contact information be available for the homeowners to contact each other to set up the dates and details of a Home Swap.
+* To use the Home Swap application, users will create an account and then enter their home information. Once a home has been uploaded, users can browse available homes and decide if they would like to ***swap right*** on another user's property. Only when another user ***swaps right*** on one of the current user's homes will contact information be available for the homeowners to contact each other to set up the dates and details of a Home Swap.
 
 * Home Swap does not take any legal responsibility besides connecting like-minded home owners that are willing to swap homes.
 
