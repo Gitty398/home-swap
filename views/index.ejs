@@ -8,24 +8,25 @@
     <title>Home Swap</title>
 </head>
 
-<body id="homepage">
+<body>
     <%- include('./partials/_navbar.ejs') %>
-        <div>
+        <div id="homepage">
             <% if (user) { %>
 
-                Welcome Back <%= user.username %>
+                <h1>Welcome Back <%= user.username %>
+                </h1>
 
-                    <% } else { %>
+                <% } else { %>
 
-                        <h1> Welcome to the Home Swap App</h1>
-                        <% } %>
-                            <h2>
-                                The perfect app for swapping homes between cost-conscious travelers
-                            </h2>
+                    <h1> Welcome to the Home Swap App</h1>
+                    <% } %>
+                        <h2>
+                            The perfect app for swapping homes between cost-conscious travelers
+                        </h2>
         </div>
 
 
-        <div>
+        <div id="homepage">
             <h3>Take a look at some of the homes available for Home Swap!</h3>
 
             <ul>

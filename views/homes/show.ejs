@@ -11,27 +11,28 @@
 <body>
     <%- include('../partials/_navbar.ejs') %>
 
-        <h1>
-            <%= home.owner.username%>'s <%=home.class%>
-        </h1>
+        <section id="home-card-section">
+            <h1>
+                <%= home.owner.username%>'s <%=home.class%>
+            </h1>
 
-        <img id="show-image" src="<%= home.image  %>" alt="<%=home.owner.username%>'s <%=home.class%>">
+            <img id="show-image" src="<%= home.image  %>" alt="<%=home.owner.username%>'s <%=home.class%>">
 
-        <div>
-            <% const isOwner=home.owner._id.equals(user._id) %>
+            <div>
+                <% const isOwner=home.owner._id.equals(user._id) %>
 
-                <% if (isOwner) { %>
+                    <% if (isOwner) { %>
 
-                    <%= home.streetAddress %>,
-                        <% } %>
-                            <%= home.city %>,
-                                <%= home.class %>
-                                    <%= home.numBedrooms %> Bed
-                                        <%= home.numBathrooms %> Bath
+                        <%= home.streetAddress %>,
+                            <% } %>
+                                <%= home.city %>,
+                                    <%= home.class %>
+                                        <%= home.numBedrooms %> Bed
+                                            <%= home.numBathrooms %> Bath
 
-        </div>
-
-        <div>
+            </div>
+        </section>
+        <div id="additionals-div">
             <p>Beach Access: <%= home.beachAccess ? "Yes" : "No" %>
             </p>
             <p>Pool Available: <%= home.poolAvailable ? "Yes" : "No" %>
@@ -42,12 +43,17 @@
 
 
 
-        <div>
+
+        <div id="trailing-div">
             <% if(isOwner) { %>
-                <a href="/homes/<%=home._id %>/edit">Edit this Home</a>
-                <form action="/homes/<%=home._id %>?_method=DELETE" method="POST">
-                    <button type="submit">Delete this Home</button>
-                </form>
+                <div>
+                    <button><a href="/homes/<%=home._id %>/edit">Edit this Home</a></button>
+                </div>
+                <div>
+                    <form action="/homes/<%=home._id %>?_method=DELETE" method="POST">
+                        <button type="submit">Delete this Home</button>
+                    </form>
+                </div>
 
                 <% } else { %>
 
@@ -65,7 +71,7 @@
                                 <% }} %>
         </div>
 
-        <div>
+        <div id="swap-div">
             <h3>Swap Matches</h3>
 
             <% if (!isOwner && userHasSwappedRight && theySwappedRightOnMe) { %>

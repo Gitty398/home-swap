@@ -7,14 +7,16 @@
 </head>
 
 <body>
-    <h1>Sign in to Home Swap</h1>
-    <form action="/auth/sign-in" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" />
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" />
-        <button type="submit">Sign in</button>
-    </form>
+    <div class="auth-page">
+        <h1>Sign in to Home Swap</h1>
+        <form class="auth-form" action="/auth/sign-in" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" />
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" />
+            <button type="submit">Sign in</button>
+        </form>
+    </div>
 </body>
 
 </html>
