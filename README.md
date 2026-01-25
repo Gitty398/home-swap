@@ -13,7 +13,7 @@ The perfect app for swapping homes between cost-conscious travelers.
 
 * Home Swap is an application where users can create a Home that they would be willing to *home swap* with another user. Home swapping is when two users decide that they would like to trade homes for a specific amount of time.
 
-* Users can decide to swap for as long as they would like as the reasons for home-swapping can vary. Examples for home-swapping can include vacation, temporary re-location without having to sell or buy a home, or any multitude of reasons.
+* Users can decide to swap for as long as they would like as the reasons for home-swapping can vary. Examples for home swapping can include vacation, temporary re-location without having to sell or buy a home, or any multitude of reasons.
 
 * To use the Home Swap application, users will create an account and then enter their home information. Once a home has been uploaded, users can browse available homes and decide if they would like to ***swap right*** on another user's property. Only when another user ***swaps right*** on one of the current user's homes will contact information be available for the homeowners to contact each other to set up the dates and details of a Home Swap.
 
@@ -23,7 +23,7 @@ The perfect app for swapping homes between cost-conscious travelers.
 
 # Background Info
 
-* I chose to create this application primarily for the reason that my wife had this idea years ago and I thought it would be fun to make her idea into reality.
+* I chose to create this application primarily for the reason that my wife had this idea years ago and I thought it would be fun to turn her idea into reality.
 
 ![Home Swap ERD](./assets/ERD.jpeg)
 
